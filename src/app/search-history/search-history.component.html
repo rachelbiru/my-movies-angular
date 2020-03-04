@@ -1,0 +1,13 @@
+<div class="searchPage">
+    <h1>search history...</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+        </tr>
+        <tr *ngFor="let history of searchHistory">
+            <td>{{history.movieName}} </td>
+            <td>{{history.searchDate |date:'M/d/yy, h:mm a'}}</td>
+        </tr>
+    </table>
+</div>

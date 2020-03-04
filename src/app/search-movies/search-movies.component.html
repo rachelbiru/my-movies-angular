@@ -1,0 +1,35 @@
+<div class="searchPage">
+    <h1>Search Movies</h1>
+
+    <div>
+        <input [(ngModel)]="inputSearch" name="name" class="form__field" placeholder="search movie...">
+        <button class="btn btn-info" (click)="onSubmit()">Search</button>
+    </div>
+
+</div>
+
+
+    <div class="container">
+        <div class="row">
+            <ng-container *ngIf="movies?.length">
+                <div class="movieDisplay" *ngFor="let movie of movies">
+                    <div class="col-sm">
+                        <a  routerLink="/single-movie/{{movie.id}}">
+                            <h2>{{movie.title}}</h2>
+                            <h3>{{movie.release_date}}</h3>
+                            <p>{{movie.overview}}</p>
+                            <span *ngIf="movie.poster_path !== null">
+                                <img  [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path" alt="now poster">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+
+
+    <div *ngIf="movies?.length === 0">
+        <span>Movie NOT Found!!</span>
+    </div>
